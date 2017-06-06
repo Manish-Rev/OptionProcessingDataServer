@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D61BDE25-3863-4838-8DB4-FB3072E631FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebSocketsServiceHost</RootNamespace>
+    <AssemblyName>WebSocketsService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.6.4.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\SuperWebSocket\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.6.4.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\SuperWebSocket\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperWebSocket, Version=0.10.0.0, Culture=neutral, PublicKeyToken=7ba53b9a7cef5d1c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\SuperWebSocket\SuperWebSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataServerWebSocketsServiceHost.cs" />
+    <Compile Include="LogonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogonControl.Designer.cs">
+      <DependentUpon>LogonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebSocketUserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common Objects\CommonObjects.csproj">
+      <Project>{C0B4FEC6-275A-4574-BCC4-A06CDCEDCA3F}</Project>
+      <Name>CommonObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerClasses\ServerClasses.csproj">
+      <Project>{EBF16E6A-1778-437F-8E3A-7C414DE92B29}</Project>
+      <Name>ServerClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LogonControl.resx">
+      <DependentUpon>LogonControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' ">xcopy "$(TargetPath)" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\Connections\" /Y
+copy "$(TargetDir)SuperWebSocket.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(TargetDir)SuperSocket.SocketBase.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(TargetDir)SuperSocket.Common.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(TargetDir)SuperSocket.Facility.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(TargetDir)SuperSocket.SocketEngine.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(TargetDir)log4net.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetPath)" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\Connections\" /Y
+copy "$(SolutionDir)\libs\SuperWebSocket\SuperWebSocket.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(SolutionDir)\libs\SuperWebSocket\SuperSocket.SocketBase.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(SolutionDir)\libs\SuperWebSocket\SuperSocket.Common.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(SolutionDir)\libs\SuperWebSocket\SuperSocket.Facility.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(SolutionDir)\libs\SuperWebSocket\SuperSocket.SocketEngine.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(SolutionDir)\libs\log4net.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"
+copy "$(SolutionDir)\libs\Newtonsoft.Json.dll" "$(SolutionDir)\DataServer\bin\$(ConfigurationName)\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

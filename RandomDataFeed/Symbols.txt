@@ -1,0 +1,125 @@
+Apple Computer Inc          AAPL.BZ          NSD          
+Art Technology Group Inc          ARTG.BZ          NSD          
+Artesian Resources Cp          ARTNA.BZ         NSD          
+Arthrocare Cp          ARTC.BZ          NSD          
+Bancorp Connecticut Inc          BKCT.BZ          NSD          
+Bancorp Rhode Island Inc          BARI.BZ          NSD          
+Bancshares Of Florida Inc          BOFL.BZ          NSD          
+Banctrust Financial Group Inc          BTFG.BZ          NSD          
+Bank McKenney          BOMK.BZ          NSD          
+Bank Mutual Cp          BKMU.BZ          NSD          
+Caraustar Industries Inc          CSAR.BZ          NSD          
+Cardiac Science CP          CSCX.BZ          NSD          
+Cardica Inc           CRDC.BZ          NSD          
+Cardinal Financial Cp          CFNL.BZ          NSD          
+Cardinal State Bank          CSNC.BZ          NSD          
+CardioDynamics International          CDIC.BZ          NSD          
+Cardiome Pharma Cp          CRME.BZ          NSD          
+Career Education Cp          CECO.BZ          NSD          
+Caribou Coffee Company Inc          CBOU.BZ          NSD          
+Carmike Cinemas Inc          CKEC.BZ          NSD          
+Dime Community Bancshares          DCOM.BZ          NSD          
+Diodes Inc          DIOD.BZ          NSD          
+Dionex Cp          DNEX.BZ          NSD          
+Endwave Cp          ENWV.BZ          NSD          
+Energy Conversion Devices Inc          ENER.BZ          NSD          
+Energy West Inc          EWST.BZ          NSD          
+Energysouth Inc          ENSI.BZ          NSD          
+Flanders Cp          FLDR.BZ          NSD          
+Flexsteel Industries Inc          FLXS.BZ          NSD          
+Flextronics International Ltd          FLEX.BZ          NSD          
+FLIR Systems Inc          FLIR.BZ          NSD          
+Greater Bay Bancorp          GBBK.BZ          NSD          
+Greater Community Bancorp          GFLS.BZ          NSD          
+Greater Delaware Valley Bank          ALLB.BZ          NSD          
+Green County Bancshares          GCBS.BZ          NSD          
+Green Mountain Coffee Roasters          GMCR.BZ          NSD          
+Google Inc          GOOG.BZ          NSD          
+Hines Horticulture Inc          HORT.BZ          NSD          
+Hingham Institution For Saving          HIFS.BZ          NSD          
+Hirsch International Cp          HRSH.BZ          NSD          
+Hittite Microwave Corporation          HITT.BZ          NSD          
+MBT Financial Cp          MBTF.BZ          NSD          
+McCormick Schmicks Seafd Rstrn          MSSR.BZ          NSD          
+McData Cp          MCDT.BZ          NSD          
+McData Cp Cl A          MCDTA.BZ          NSD          
+MCG Capital Cp          MCGC.BZ          NSD          
+McGrath Rentcorp          MGRC.BZ          NSD          
+Microsoft Corp          MSFT.BZ          NSD          
+Novatel Inc          NGPS.BZ          NSD          
+Novatel Wireless Inc          NVTL.BZ          NSD          
+Novavax Inc          NVAX.BZ          NSD          
+Novell Inc          NOVL.BZ          NSD          
+Printronix Inc          PTNX.BZ          NSD          
+Private Media Group Inc          PRVT.BZ          NSD          
+Privatebancorp Inc          PVTB.BZ          NSD          
+Pro Dex Inc          PDEX.BZ          NSD          
+Pro Fac Cooperative Inc          PFACP.BZ          NSD          
+Sify Ltd ADR          SIFY.BZ          NSD          
+SIGA Technologies Inc          SIGA.BZ          NSD          
+Sigma Aldrich Cp          SIAL.BZ          NSD          
+Sigma Designs Inc          SIGM.BZ          NSD          
+Supermontage Test          FJZST.BZ          NSD          
+Supermontage Test          HQZST.BZ          NSD          
+Supermontage Test          AZZST.BZ          NSD          
+Supermontage Test          AQZST.BZ          NSD          
+Supermontage Test Security          MZZST.BZ          NSD          
+Thomas Group Inc          TGIS.BZ          NSD          
+Thomas Properties Group Inc          TPGI.BZ          NSD          
+Thomas Weisel Partners Group Inc          TWPG.BZ          NSD          
+Thoratec Cp          THOR.BZ          NSD          
+THQ Inc          THQI.BZ          NSD          
+City National Cp          CYN.BZ          NYE          
+CKE Restaurants Inc          CKR.BZ          NYE          
+Claires Stores Inc          CLE.BZ          NYE          
+Clarcor Inc          CLC.BZ          NYE          
+Clark Inc          CLK.BZ          NYE          
+Claymore Raymond James SB-1 Equity Fund          RYJ.BZ          NYE          
+Eagle Hospitality Prop Tr Inc          EHP.BZ          NYE          
+Eagle Hospitality Properties Trust Inc          EHP1A.BZ          NYE          
+Eagle Materials Inc          EXP.BZ          NYE          
+Eastern Amer Natural Gas Tr          NGT.BZ          NYE          
+Eastgroup Properties Inc          EGP.BZ          NYE          
+Eastgroup Properties Inc Pfd D          EGP1D.BZ          NYE          
+Eastman Chemical Co          EMN.BZ          NYE          
+Yahoo! Inc          YHOO.BZ          NYE
+Amazon          AMZN.BZ          NSD        
+FOREX          EUR/USD          FOREX
+FOREX          EUR/GBP          FOREX
+FOREX          EUR/JPY          FOREX
+FOREX          USD/CAD          FOREX
+FOREX          USD/JPY          FOREX
+FOREX          USD/CHF          FOREX
+FOREX          AUD/USD          FOREX
+FOREX          GBP/USD          FOREX
+FOREX          NZD/USD          FOREX
+FOREX          BTC/USD          FOREX
+FOREX          USD/RUB          FOREX
+FOREX          AUD/CAD          FOREX
+FOREX          AUD/CHF          FOREX
+FOREX          AUD/JPY          FOREX
+FOREX          AUD/NZD          FOREX
+FOREX          CAD/CHF          FOREX
+FOREX          CAD/JPY          FOREX
+5 Year US T-NOTES          ZF*0          CBOT
+10 Year US T-NOTES          ZN*0          CBOT
+30 Year US T-BOND          ZB*0          CBOT
+EURO-BUND          GG*0          EUREX
+Crude Oil          CL*0          NYMEX
+Gold (XAU/USD)          ^XAUUSD          #NA
+Silver(XAG/USD)          ^XAGUSD          #NA
+Platinum(XPT/USD)          ^XPTUSD          #NA
+Natural Gas          NG*0          NYMEX
+Heating Oil          HO*0          NYMEX
+Gasoline          RB*0          NYMEX
+Coffee C          KC*0          ICE
+Sugar no. 11          SB*0          ICE
+Cotton no. 2          CT*0          ICE
+Brent Oil          CB*0          ICE
+Palladium          ^XPDUSD          #NA
+Cocoa          CC*0          ICE
+Copper          HG*0          COMEX
+CAC 40          MX*0          Euronext.LIFFE
+DAX 30          DY*0          EUREX
+FTSE 100          X*0          Euronext.LIFFE
+DOLLAR INDEX          DX*0          ICE US

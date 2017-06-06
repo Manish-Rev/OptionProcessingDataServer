@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommonObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="LoginRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginRequest" nillable="true" type="tns:LoginRequest" />
+  <xs:complexType name="RequestMessage">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RequestMessage" nillable="true" type="tns:RequestMessage" />
+  <xs:complexType name="DataFeedListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataFeedListRequest" nillable="true" type="tns:DataFeedListRequest" />
+  <xs:complexType name="HeartbeatRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HeartbeatRequest" nillable="true" type="tns:HeartbeatRequest" />
+  <xs:complexType name="UnsubscribeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UnsubscribeRequest" nillable="true" type="tns:UnsubscribeRequest" />
+  <xs:complexType name="SymbolItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataFeed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Exchange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Symbol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:Instrument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SymbolItem" nillable="true" type="tns:SymbolItem" />
+  <xs:simpleType name="Instrument">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Equity" />
+      <xs:enumeration value="Option" />
+      <xs:enumeration value="Forex" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Instrument" nillable="true" type="tns:Instrument" />
+  <xs:complexType name="AlertUnsubscribeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlertUnsubscribeRequest" nillable="true" type="tns:AlertUnsubscribeRequest" />
+  <xs:complexType name="SubscribeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubscribeRequest" nillable="true" type="tns:SubscribeRequest" />
+  <xs:complexType name="BacktestGetRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BarsCount" type="xs:int" />
+          <xs:element minOccurs="0" name="BuyScript" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Interval" type="xs:int" />
+          <xs:element minOccurs="0" name="Periodicity" type="tns:Periodicity" />
+          <xs:element minOccurs="0" name="SellScript" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BacktestGetRequest" nillable="true" type="tns:BacktestGetRequest" />
+  <xs:simpleType name="Periodicity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Second" />
+      <xs:enumeration value="Minute" />
+      <xs:enumeration value="Hour" />
+      <xs:enumeration value="Day" />
+      <xs:enumeration value="Week" />
+      <xs:enumeration value="Month" />
+      <xs:enumeration value="Year" />
+      <xs:enumeration value="Tick" />
+      <xs:enumeration value="Range" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Periodicity" nillable="true" type="tns:Periodicity" />
+  <xs:complexType name="L2SubscribeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="L2SubscribeRequest" nillable="true" type="tns:L2SubscribeRequest" />
+  <xs:complexType name="L2UnsubscribeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="L2UnsubscribeRequest" nillable="true" type="tns:L2UnsubscribeRequest" />
+  <xs:complexType name="HistoryRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Selection" nillable="true" type="tns:HistoryParameters" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HistoryRequest" nillable="true" type="tns:HistoryRequest" />
+  <xs:complexType name="HistoryParameters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="From" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GenerateChartImage" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Interval" type="xs:int" />
+      <xs:element minOccurs="0" name="Periodicity" type="tns:Periodicity" />
+      <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+      <xs:element minOccurs="0" name="To" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryParameters" nillable="true" type="tns:HistoryParameters" />
+  <xs:complexType name="AlertSubscribeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlertName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BarsCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CalculationType" type="tns:AlertCalculateType" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Interval" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Periodicity" type="tns:Periodicity" />
+          <xs:element minOccurs="0" name="Script" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlertSubscribeRequest" nillable="true" type="tns:AlertSubscribeRequest" />
+  <xs:simpleType name="AlertCalculateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OnTick" />
+      <xs:enumeration value="OnBarClose" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AlertCalculateType" nillable="true" type="tns:AlertCalculateType" />
+  <xs:complexType name="LoginResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginResponse" nillable="true" type="tns:LoginResponse" />
+  <xs:complexType name="ResponseMessage">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ResponseMessage" nillable="true" type="tns:ResponseMessage" />
+  <xs:complexType name="HeartbeatResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HeartbeatResponse" nillable="true" type="tns:HeartbeatResponse" />
+  <xs:complexType name="HistoryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Bars" nillable="true" type="tns:ArrayOfBar" />
+          <xs:element minOccurs="0" name="ChartImageData" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tail" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HistoryResponse" nillable="true" type="tns:HistoryResponse" />
+  <xs:complexType name="ArrayOfBar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bar" nillable="true" type="tns:Bar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBar" nillable="true" type="tns:ArrayOfBar" />
+  <xs:complexType name="Bar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Close" type="xs:double" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="High" type="xs:double" />
+      <xs:element minOccurs="0" name="Low" type="xs:double" />
+      <xs:element minOccurs="0" name="Open" type="xs:double" />
+      <xs:element minOccurs="0" name="Volume" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Bar" nillable="true" type="tns:Bar" />
+  <xs:complexType name="L2SubscribeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Level2" nillable="true" type="tns:Level2Data" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="L2SubscribeResponse" nillable="true" type="tns:L2SubscribeResponse" />
+  <xs:complexType name="Level2Data">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Asks" nillable="true" type="tns:ArrayOfLevel2Item" />
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfLevel2Item" />
+      <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Level2Data" nillable="true" type="tns:Level2Data" />
+  <xs:complexType name="ArrayOfLevel2Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Level2Item" nillable="true" type="tns:Level2Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLevel2Item" nillable="true" type="tns:ArrayOfLevel2Item" />
+  <xs:complexType name="Level2Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MarketMaker" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Level2Item" nillable="true" type="tns:Level2Item" />
+  <xs:complexType name="DataFeedListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataFeeds" nillable="true" type="tns:ArrayOfDataFeed" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataFeedListResponse" nillable="true" type="tns:DataFeedListResponse" />
+  <xs:complexType name="ArrayOfDataFeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataFeed" nillable="true" type="tns:DataFeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataFeed" nillable="true" type="tns:ArrayOfDataFeed" />
+  <xs:complexType name="DataFeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Exchanges" nillable="true" type="tns:ArrayOfExchangeInfo" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataFeed" nillable="true" type="tns:DataFeed" />
+  <xs:complexType name="ArrayOfExchangeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExchangeInfo" nillable="true" type="tns:ExchangeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExchangeInfo" nillable="true" type="tns:ArrayOfExchangeInfo" />
+  <xs:complexType name="ExchangeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Symbols" nillable="true" type="tns:ArrayOfSymbolItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExchangeInfo" nillable="true" type="tns:ExchangeInfo" />
+  <xs:complexType name="ArrayOfSymbolItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SymbolItem" nillable="true" type="tns:SymbolItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSymbolItem" nillable="true" type="tns:ArrayOfSymbolItem" />
+  <xs:complexType name="NewTickResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Tick" nillable="true" type="tns:ArrayOfTick" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NewTickResponse" nillable="true" type="tns:NewTickResponse" />
+  <xs:complexType name="ArrayOfTick">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tick" nillable="true" type="tns:Tick" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTick" nillable="true" type="tns:ArrayOfTick" />
+  <xs:complexType name="Tick">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ask" type="xs:double" />
+      <xs:element minOccurs="0" name="AskSize" type="xs:double" />
+      <xs:element minOccurs="0" name="Bid" type="xs:double" />
+      <xs:element minOccurs="0" name="BidSize" type="xs:double" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+      <xs:element minOccurs="0" name="Volume" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tick" nillable="true" type="tns:Tick" />
+  <xs:complexType name="ErrorInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ErrorInfo" nillable="true" type="tns:ErrorInfo" />
+  <xs:complexType name="AlertSubscribeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Alert" nillable="true" type="tns:Alert" />
+          <xs:element minOccurs="0" name="AlertName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlertSubscribeResponse" nillable="true" type="tns:AlertSubscribeResponse" />
+  <xs:complexType name="Alert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alert" nillable="true" type="tns:Alert" />
+  <xs:complexType name="BacktestGetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Information" nillable="true" type="tns:ArrayOfBacktestInformationItem" />
+          <xs:element minOccurs="0" name="Symbol" nillable="true" type="tns:SymbolItem" />
+          <xs:element minOccurs="0" name="Trades" nillable="true" type="tns:ArrayOfBacktestTradeItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BacktestGetResponse" nillable="true" type="tns:BacktestGetResponse" />
+  <xs:complexType name="ArrayOfBacktestInformationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BacktestInformationItem" nillable="true" type="tns:BacktestInformationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBacktestInformationItem" nillable="true" type="tns:ArrayOfBacktestInformationItem" />
+  <xs:complexType name="BacktestInformationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BacktestInformationItem" nillable="true" type="tns:BacktestInformationItem" />
+  <xs:complexType name="ArrayOfBacktestTradeItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BacktestTradeItem" nillable="true" type="tns:BacktestTradeItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBacktestTradeItem" nillable="true" type="tns:ArrayOfBacktestTradeItem" />
+  <xs:complexType name="BacktestTradeItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BacktestTradeItem" nillable="true" type="tns:BacktestTradeItem" />
+  <xs:complexType name="DataServerException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataServerException" nillable="true" type="tns:DataServerException" />
+</xs:schema>
